@@ -83,7 +83,7 @@ def inference(pred_x):
     ]
 
     pred_list = np.argsort(pred_x)
-    top_n = pred_list[0][-5:]
+    top_n = pred_list[0][-3:]
 
     for item in top_n:
         print(CIFAR100_LABELS_LIST[int(item)])
@@ -99,8 +99,7 @@ def main():
 
     img_tensor = load_data(img_path)
     model = build_model(num_classes, weight_decay)
-
-#    model.load_weights('cifar100_model/cifar100_model-weights.14-0.508800.hdf5')
+    model.load_weights('/Users/simseungcheol/Desktop/studyProject/dataprepPythonFile/cifar100_model/cifar100_model-weights.05-0.401800.hdf5')
     pred_x = model.predict(img_tensor)
 
     inference(pred_x)
